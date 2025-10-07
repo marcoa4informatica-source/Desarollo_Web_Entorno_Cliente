@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicio 1.4 - Mostrar imagen seleccionada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    img {
+      margin-top: 15px;
+      max-width: 300px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      display: none; /* Oculta la imagen hasta que se seleccione una */
+    }
+  </style>
+</head>
+<body>
+  <h2>Ejercicio 1.4</h2>
+  <label for="imagenSelect">Selecciona una imagen:</label>
+  <select id="imagenSelect">
+    <option value="" disabled selected>Elige una imagen...</option>
+    <option value="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQFj7gs06xukf_Z1bkKh5mJTWYeNFz2cdDvyTMO1Eg6mFruCpj0r1e2lVWGmN-twRwsD6BKqTtKga9unoDE7-sJtjToaRQE6XRGywoOdU7ExQ">Atardecer</option>
+    <option value="data:image/jpeg;base64,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">Bosque</option>
+    <option value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPYg2VsmQQJe16iljFDBXrQSgMdguq9H-VKRuIRbJHceNHSC3w7qE6v0w&s">Lago</option>
+  </select>
+
+  <div>
+    <img id="imagenMostrada" src="" alt="Vista previa de la imagen">
+  </div>
+
+  <script>
+    const selector = document.getElementById('imagenSelect');
+    const imagen = document.getElementById('imagenMostrada');
+
+    selector.addEventListener('change', (e) => {
+      const nombreArchivo = e.target.value;
+      if (nombreArchivo) {
+        imagen.src = nombreArchivo;
+        imagen.style.display = 'block';
+      } else {
+        imagen.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

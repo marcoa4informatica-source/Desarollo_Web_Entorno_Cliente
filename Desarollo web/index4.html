@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1.5 - Negrita y Cursiva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .opciones {
+            margin-top: 20px;
+        }
+        #texto {
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ejercicio 1.5: Texto con opciones de formato</h2>
+
+    <div class="opciones">
+        <label for="negrita">¿Negrita?</label>
+        <select id="negrita">
+            <option value="no">No</option>
+            <option value="si">Sí</option>
+        </select>
+
+        <label for="cursiva" style="margin-left: 20px;">¿Cursiva?</label>
+        <select id="cursiva">
+            <option value="no">No</option>
+            <option value="si">Sí</option>
+        </select>
+    </div>
+
+    <p id="texto">Este es el texto que cambiará su formato.</p>
+
+    <script>
+        const texto = document.getElementById('texto');
+        const negrita = document.getElementById('negrita');
+        const cursiva = document.getElementById('cursiva');
+
+        function actualizarTexto() {
+            texto.style.fontWeight = (negrita.value === 'si') ? 'bold' : 'normal';
+            texto.style.fontStyle = (cursiva.value === 'si') ? 'italic' : 'normal';
+        }
+
+        negrita.addEventListener('change', actualizarTexto);
+        cursiva.addEventListener('change', actualizarTexto);
+    </script>
+</body>
+</html>
