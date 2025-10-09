@@ -1,0 +1,16 @@
+<script>
+var diaSemana = ["Lunes","Martes","Miércoles","Jueves","Viernes"];
+var hora = [1,2,3,4,5,6];
+var hayMusica = false;
+alert(¿Qué día es y en que hora de clase estás?);
+dia = promtp ("¿Qué día es?");
+h = promtp ("¿En qué hora estás?");
+alert = (dia);
+alert = (h);
+if (diaSemana == "Jueves" && hora == 6){
+  hayMusica = true;
+}
+if (hayMusica){
+  alert("Hoy toca flauta!");
+}
+</script>
