@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Calculadora Básica</h1>
+    <input type="number" id="num1" placeholder="Ingrese el primer número">
+    <input type="number" id="num2" placeholder="Ingrese el segundo número">
+    <button id="addBtn">+</button>
+    <button id="subtractBtn">-</button>
+    <button id="multiplyBtn">*</button>
+    <button id="divideBtn">/</button>
+    <p id="result">Resultado: </p>
+
+    <script>
+        // Funciones flecha para cada operación
+        const add = (a, b) => a + b;
+        const subtract = (a, b) => a - b;
+        const multiply = (a, b) => a * b;
+        const divide = (a, b) => {
+            if (b === 0) {
+                throw new Error('División por cero no permitida');
+            }
+            return a / b;
+        };
+
+        // Event listeners para los botones
+        document.getElementById('addBtn').addEventListener('click', () => {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                try {
+                    const result = add(num1, num2);
+                    document.getElementById('result').textContent = `Resultado: ${result}`;
+                } catch (error) {
+                    document.getElementById('result').textContent = `Error: ${error.message}`;
+                }
+            } else {
+                document.getElementById('result').textContent = 'Error: Ingrese números válidos';
+            }
+        });
+
+        document.getElementById('subtractBtn').addEventListener('click', () => {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                try {
+                    const result = subtract(num1, num2);
+                    document.getElementById('result').textContent = `Resultado: ${result}`;
+                } catch (error) {
+                    document.getElementById('result').textContent = `Error: ${error.message}`;
+                }
+            } else {
+                document.getElementById('result').textContent = 'Error: Ingrese números válidos';
+            }
+        });
+
+        document.getElementById('multiplyBtn').addEventListener('click', () => {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                try {
+                    const result = multiply(num1, num2);
+                    document.getElementById('result').textContent = `Resultado: ${result}`;
+                } catch (error) {
+                    document.getElementById('result').textContent = `Error: ${error.message}`;
+                }
+            } else {
+                document.getElementById('result').textContent = 'Error: Ingrese números válidos';
+            }
+        });
+
+        document.getElementById('divideBtn').addEventListener('click', () => {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                try {
+                    const result = divide(num1, num2);
+                    document.getElementById('result').textContent = `Resultado: ${result}`;
+                } catch (error) {
+                    document.getElementById('result').textContent = `Error: ${error.message}`;
+                }
+            } else {
+                document.getElementById('result').textContent = 'Error: Ingrese números válidos';
+            }
+        });
+    </script>
+</body>
+</html>

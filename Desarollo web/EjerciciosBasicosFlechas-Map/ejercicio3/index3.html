@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Ciudades y Habitantes</title>
+    <style>
+        .red { color: red; }  /* Estilo para la ciudad con más habitantes */
+        .green { color: green; }  /* Estilo para la ciudad con menos habitantes */
+    </style>
+</head>
+<body>
+    <h1>Gestión de Ciudades</h1>
+    <ul id="cityList"></ul>  <!-- Lista dinámica -->
+
+    <!-- Opciones para el usuario -->
+    <button id="showAll">Ver todas las ciudades</button>
+    <button id="showCount">Ver cantidad de ciudades</button>
+    <input type="text" id="cityToDelete" placeholder="Nombre de la ciudad a borrar">
+    <button id="deleteCity">Borrar ciudad</button>
+    <input type="text" id="newCity" placeholder="Nombre de la nueva ciudad">
+    <input type="number" id="newHabitants" placeholder="Cantidad de habitantes">
+    <button id="addCity">Añadir ciudad</button>
+    <button id="maxCity">Ciudad con más habitantes</button>
+    <button id="minCity">Ciudad con menos habitantes</button>
+    <p id="info"></p>
+
+    <script>
+        const citiesMap = new Map([
+            ['Madrid', 3165000],
+            ['Barcelona', 1620000],
+            ['Sevilla', 690000],
+            ['Valencia', 834000]
+        ]);  // Inicializamos el Map con datos de ejemplo
+
+        function updateList() {
+            const list = document.getElementById('cityList');
+            list.innerHTML = '';  // Limpiamos la lista
+            citiesMap.forEach((habitants, city) => {
+                const li = document.createElement('li');
+                li.textContent = `${city}: ${habitants}`;
+                list.appendChild(li);
+            });
+        }
+
+        window.onload = updateList;  // Crea la lista dinámicamente al cargar la página
+
+        document.getElementById('showAll').addEventListener('click', updateList);  // Opción 1: Ver todas
+
+        document.getElementById('showCount').addEventListener('click', () => {  // Opción 2: Cantidad de ciudades
+            document.getElementById('info').textContent = `Número de ciudades: ${citiesMap.size}`;
+        });
+
+        document.getElementById('deleteCity').addEventListener('click', () => {  // Opción 3: Borrar ciudad
+            const city = document.getElementById('cityToDelete').value;
+            if (citiesMap.delete(city)) {
+                updateList();  // Actualizamos la lista
+                document.getElementById('info').textContent = `Ciudad "${city}" borrada.`;
+            } else {
+                document.getElementById('info').textContent = `Ciudad "${city}" no encontrada.`;
+            }
+        });
+
+        document.getElementById('addCity').addEventListener('click', () => {  // Opción 4: Añadir ciudad
+            const city = document.getElementById('newCity').value;
+            const habitants = parseInt(document.getElementById('newHabitants').value);
+            if (city && !isNaN(habitants) && habitants > 0) {
+                citiesMap.set(city, habitants);
+                updateList();
+                document.getElementById('info').textContent = `Ciudad "${city}" añadida.`;
+            } else {
+                document.getElementById('info').textContent = 'Error: Ingrese un nombre y un número válido de habitantes.';
+            }
+        });
+
+        document.getElementById('maxCity').addEventListener('click', () => {  // Opción 5: Ciudad con más habitantes
+            let maxCity = '';
+            let maxHab = 0;
+            citiesMap.forEach((habitants, city) => {
+                if (habitants > maxHab) {
+                    maxHab = habitants;
+                    maxCity = city;
+                }
+            });
+            document.getElementById('info').textContent = `Ciudad con más habitantes: ${maxCity} (${maxHab})`;
+            // Resaltar en la lista: actualizamos la lista y aplicamos clase roja
+            updateList();
+            const listItems = document.getElementById('cityList').getElementsByTagName('li');
+            for (let item of listItems) {
+                if (item.textContent.includes(maxCity)) {
+                    item.className = 'red';
+                }
+            }
+        });
+
+        document.getElementById('minCity').addEventListener('click', () => {  // Opción 6: Ciudad con menos habitantes
+            let minCity = '';
+            let minHab = Infinity;
+            citiesMap.forEach((habitants, city) => {
+                if (habitants < minHab) {
+                    minHab = habitants;
+                    minCity = city;
+                }
+            });
+            document.getElementById('info').textContent = `Ciudad con menos habitantes: ${minCity} (${minHab})`;
+            // Resaltar en la lista: actualizamos y aplicamos clase verde
+            updateList();
+            const listItems = document.getElementById('cityList').getElementsByTagName('li');
+            for (let item of listItems) {
+                if (item.textContent.includes(minCity)) {
+                    item.className = 'green';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

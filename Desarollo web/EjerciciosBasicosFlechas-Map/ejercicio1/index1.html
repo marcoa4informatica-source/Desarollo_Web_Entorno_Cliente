@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Tarea 1</title>
+</head>
+<body>
+    <h1>Generador de número aleatorio</h1>
+    <input type="number" id="inputNumber" placeholder="Ingrese un número entero positivo">
+    <button id="generateBtn">Generar número aleatorio</button>
+    <p id="result">Resultado: </p>
+
+    <script>
+        const getRandomNumber = (n) => {
+            if (typeof n !== 'number' || n < 1 || !Number.isInteger(n)) {
+                throw new Error('El parámetro debe ser un entero positivo mayor o igual a 1');
+            }
+            return Math.floor(Math.random() * n) + 1;
+        };
+
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            const n = parseInt(document.getElementById('inputNumber').value);
+            try {
+                const randomNum = getRandomNumber(n);
+                document.getElementById('result').textContent = `Resultado: ${randomNum}`;
+            } catch (error) {
+                document.getElementById('result').textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>
