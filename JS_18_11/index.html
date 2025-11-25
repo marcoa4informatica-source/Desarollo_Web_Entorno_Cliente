@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Ejercicios JS – Recursividad y Funciones</title>
+</head>
+
+<body>
+    <header class="cabecera">
+        <h1 class="titulo">Ejercicios 18/11/2025</h1>
+        <p class="nombre">Autor: Marco Antonio Muñoz Aragón – 2º DAW</p>
+    </header>
+
+    <main class="contenedor">
+        <section class="intro">
+            <p>
+                Pequeña colección de ejercicios de JavaScript usando funciones, callbacks y recursividad.
+                Haz clic en los botones para ver los resultados.
+            </p>
+        </section>
+
+        <section class="grid-ejercicios">
+
+            <!-- EJERCICIO 1 -->
+            <article class="tarjeta">
+                <div class="tarjeta-header">
+                    <span class="badge">Ejercicio 1</span>
+                    <h2>crearUsuario</h2>
+                </div>
+                <p class="descripcion">
+                    Crea un usuario con <strong>nombre</strong>, <strong>edad</strong> y <strong>país</strong>.
+                    Si falta algún dato, se usan valores por defecto.
+                </p>
+                <div class="formulario">
+                    <label>
+                        Nombre
+                        <input type="text" id="ej1-nombre" placeholder="Ej: Juan">
+                    </label>
+                    <label>
+                        Edad
+                        <input type="number" id="ej1-edad" placeholder="Ej: 20">
+                    </label>
+                    <label>
+                        País
+                        <input type="text" id="ej1-pais" placeholder="Ej: España">
+                    </label>
+                    <button id="ej1-btn">Crear usuario</button>
+                </div>
+                <div class="resultado" id="ej1-resultado">
+                    Esperando datos...
+                </div>
+            </article>
+
+            <!-- EJERCICIO 2 -->
+            <article class="tarjeta">
+                <div class="tarjeta-header">
+                    <span class="badge">Ejercicio 2</span>
+                    <h2>operar (callbacks)</h2>
+                </div>
+                <p class="descripcion">
+                    Recibe dos números y una función que indica la operación:
+                    <code>suma</code>, <code>resta</code>, <code>multiplicacion</code> o <code>suma_mul</code>.
+                </p>
+                <div class="formulario">
+                    <label>
+                        Número A
+                        <input type="number" id="ej2-a" value="2">
+                    </label>
+                    <label>
+                        Número B
+                        <input type="number" id="ej2-b" value="3">
+                    </label>
+                    <label>
+                        Operación
+                        <select id="ej2-op">
+                            <option value="suma">suma</option>
+                            <option value="resta">resta</option>
+                            <option value="multiplicacion">multiplicación</option>
+                            <option value="suma_mul">suma_mul</option>
+                        </select>
+                    </label>
+                    <button id="ej2-btn">Calcular</button>
+                </div>
+                <div class="resultado" id="ej2-resultado">
+                    Resultado de la operación…
+                </div>
+            </article>
+
+            <!-- EJERCICIO 3 -->
+            <article class="tarjeta">
+                <div class="tarjeta-header">
+                    <span class="badge">Ejercicio 3</span>
+                    <h2>aplanar (recursivo)</h2>
+                </div>
+                <p class="descripcion">
+                    Convierte un array anidado en un array plano.
+                </p>
+                <p class="codigo-ejemplo">
+                    Ejemplo: <code>[1, [2, [3, 4]], 5]</code>
+                </p>
+                <button id="ej3-btn">Aplanar ejemplo</button>
+                <div class="resultado" id="ej3-resultado">
+                    Haz clic para ver el array plano.
+                </div>
+            </article>
+
+            <!-- EJERCICIO 4A -->
+            <article class="tarjeta">
+                <div class="tarjeta-header">
+                    <span class="badge">Ejercicio 4A</span>
+                    <h2>listarArchivos</h2>
+                </div>
+                <p class="descripcion">
+                    Recorre recursivamente un “sistema de archivos” (objeto con carpetas y archivos) y devuelve
+                    todos los nombres de archivo.
+                </p>
+                <p class="codigo-ejemplo">
+
+                    <code>const fs = {
+                                    carpeta1: {
+                                            archivo1: "contenido1",
+                                            archivo2: "contenido2",
+                                            subcarpeta: {
+                                            archivo3: "contenido3"
+                                            }
+                                    },
+                                    carpeta2: {
+                                            archivo4: "contenido4"
+                                            }
+                                    };
+                    </code>
+                </p>
+                <button id="ej4a-btn">Listar archivos</button>
+                <div class="resultado" id="ej4a-resultado">
+                    Haz clic para ver los nombres de archivo.
+                </div>
+            </article>
+
+            <!-- EJERCICIO 4B -->
+            <article class="tarjeta">
+                <div class="tarjeta-header">
+                    <span class="badge">Ejercicio 4B</span>
+                    <h2>permutar (recursivo)</h2>
+                </div>
+                <p class="descripcion">
+                    Genera todas las permutaciones posibles de un array.
+                </p>
+                <div class="formulario">
+                    <label>
+                        Array (valores separados por comas)
+                        <input type="text" id="ej4b-input" value="1,2,3">
+                    </label>
+                    <button id="ej4b-btn">Generar permutaciones</button>
+                </div>
+                <div class="resultado scroll" id="ej4b-resultado">
+                    Las permutaciones aparecerán aquí.
+                </div>
+            </article>
+                        <!-- EXTENSION 1 -->
+            <article class="tarjeta">
+                <div class="tarjeta-header">
+                    <span class="badge">Extensión 1</span>
+                    <h2>operar (callback sencillo)</h2>
+                </div>
+                <p class="descripcion">
+                    Usa <code>operar(a, b, callback)</code> con funciones de suma, resta o multiplicación.
+                </p>
+                <div class="formulario">
+                    <label>
+                        Número A
+                        <input type="number" id="ext1-a" value="5">
+                    </label>
+                    <label>
+                        Número B
+                        <input type="number" id="ext1-b" value="4">
+                    </label>
+                    <label>
+                        Operación
+                        <select id="ext1-op">
+                            <option value="suma">suma</option>
+                            <option value="resta">resta</option>
+                            <option value="multiplicacion">multiplicación</option>
+                        </select>
+                    </label>
+                    <button id="ext1-btn">Calcular</button>
+                </div>
+                <div class="resultado" id="ext1-resultado">
+                    Resultado de la extensión 1…
+                </div>
+            </article>
+
+            <!-- EXTENSION 2 -->
+            <article class="tarjeta">
+                <div class="tarjeta-header">
+                    <span class="badge">Extensión 2</span>
+                    <h2>Función que devuelve función</h2>
+                </div>
+                <p class="descripcion">
+                    Crea un <strong>sumador</strong> con un número fijo y úsalo para sumar otro número.
+                </p>
+                <div class="formulario">
+                    <label>
+                        Número fijo
+                        <input type="number" id="ext2-fijo" value="10">
+                    </label>
+                    <label>
+                        Otro número
+                        <input type="number" id="ext2-numero" value="5">
+                    </label>
+                    <button id="ext2-btn">Sumar</button>
+                </div>
+                <div class="resultado" id="ext2-resultado">
+                    Resultado de la extensión 2…
+                </div>
+            </article>
+
+            <!-- EXTENSION 3 -->
+            <article class="tarjeta">
+                <div class="tarjeta-header">
+                    <span class="badge">Extensión 3</span>
+                    <h2>Validador (function expression)</h2>
+                </div>
+                <p class="descripcion">
+                    Comprueba si una cadena tiene más de 10 caracteres usando una <em>expresión de función</em>.
+                </p>
+                <div class="formulario">
+                    <label>
+                        Escribe un texto
+                        <input type="text" id="ext3-texto" placeholder="Escribe algo...">
+                    </label>
+                    <button id="ext3-btn">Validar</button>
+                </div>
+                <div class="resultado" id="ext3-resultado">
+                    Esperando texto para validar…
+                </div>
+            </article>
+
+            <!-- EXTENSION 4 -->
+            <article class="tarjeta">
+                <div class="tarjeta-header">
+                    <span class="badge">Extensión 4</span>
+                    <h2>greet como expresión de función</h2>
+                </div>
+                <p class="descripcion">
+                    Convierte <code>function greet() { ... }</code> en una expresión de función y úsala.
+                </p>
+                <button id="ext4-btn">Saludar</button>
+                <div class="resultado" id="ext4-resultado">
+                    Pulsa el botón para saludar.
+                </div>
+            </article>
+
+
+        </section>
+    </main>
+
+    <footer class="pie">
+        <p>Desarrollado en JavaScript puro – 2º DAW</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
