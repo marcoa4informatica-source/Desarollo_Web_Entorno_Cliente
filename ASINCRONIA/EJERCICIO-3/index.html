@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buscador de Productos (search + errores)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Buscador de Productos Detallado</h1>
+
+  <div class="row">
+    <input id="inputBusqueda" type="text" placeholder='Escribe algo (ej: "phone")' />
+    <button id="btnBuscar">Buscar</button>
+    <button id="btnLimpiar">Limpiar</button>
+  </div>
+
+  <p id="estado" class="muted"></p>
+  <div id="mensaje" class="msg" style="display:none;"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Descripción corta</th>
+        <th>Descuento</th>
+      </tr>
+    </thead>
+    <tbody id="tbodyResultados"></tbody>
+  </table>
+
+  <!-- JS al final para que el DOM ya esté cargado -->
+  <script src="app.js"></script>
+</body>
+</html>

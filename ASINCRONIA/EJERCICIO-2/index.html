@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Productos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Catálogo de Productos</h1>
+
+  <div class="row">
+    <button id="btnCargar">Cargar productos</button>
+    <button id="btnFiltrar">Filtrar por stock bajo</button>
+    <button id="btnVerTodos">Ver todos</button>
+  </div>
+
+  <p id="estado" class="muted"></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Marca</th>
+      </tr>
+    </thead>
+    <tbody id="tbodyProductos"></tbody>
+  </table>
+
+  <script src="app.js"></script>
+</body>
+</html>

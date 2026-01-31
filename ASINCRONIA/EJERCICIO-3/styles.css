@@ -1,0 +1,13 @@
+body { font-family: system-ui, Arial, sans-serif; padding: 20px; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+input { padding: 10px; min-width: 240px; }
+button { padding: 10px 14px; cursor: pointer; }
+
+table { border-collapse: collapse; width: 100%; margin-top: 16px; }
+th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
+th { background: #f4f4f4; }
+
+img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; }
+
+.muted { color: #666; font-size: 0.95rem; margin-top: 8px; }
+.msg { margin-top: 12px; padding: 10px; background: #fafafa; border: 1px solid #eee; }

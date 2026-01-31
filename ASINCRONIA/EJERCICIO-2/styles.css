@@ -1,0 +1,11 @@
+body { font-family: system-ui, Arial, sans-serif; padding: 20px; }
+
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+button { padding: 10px 14px; cursor: pointer; }
+
+table { border-collapse: collapse; width: 100%; margin-top: 16px; }
+th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+th { background: #f4f4f4; }
+
+.muted { color: #666; font-size: 0.95rem; margin-top: 8px; }
